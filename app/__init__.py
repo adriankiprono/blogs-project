@@ -3,18 +3,19 @@ from config import config_options
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
+from flask_uploads import UploadSet,configure_uploads,IMAGES
 
 # from flask_moment import  Moment
 # from flask_uploads import UploadSet,configure_uploads,IMAGES
 
 db =SQLAlchemy()
 bootstrap = Bootstrap()
-# moment = Moment()
+
 
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
-# photos = UploadSet('photos',IMAGES)
+photos = UploadSet('photos',IMAGES)
 
 def create_app(config_name):
     
@@ -43,7 +44,7 @@ def create_app(config_name):
     # configure_request(app)
     
      # configure UploadSet
-    # configure_uploads(app,photos)
+    configure_uploads(app,photos)
     
     return app
     

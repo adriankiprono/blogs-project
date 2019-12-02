@@ -10,7 +10,7 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://adriantuimur://qweasdzxc1234567890@localhost/blog'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     
-    # UPLOADED_PHOTOS_DEST ='app/static/photos'
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
     
 class ProdConfig(Config):
     '''
