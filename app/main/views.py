@@ -1,3 +1,4 @@
+from . import main
 from flask_login import login_required
 from flask import render_template,redirect,url_for,request,abort,flash
 from ..models import User,Post,Comment
@@ -8,9 +9,9 @@ from .forms import BlogForm,CommentsForm,UpdateProfile
 
 @main.route('/')
 def index():
-    quote = get_random_quote()
+    # quote = get_random_quote()
     
-    return render_template('index.html',quote=quote)
+    return render_template('index.html')
 
 @main.route('/blogs')
 def blogs():
