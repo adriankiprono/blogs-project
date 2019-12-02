@@ -1,7 +1,7 @@
 from .import db,login_manager
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
-from . import login_manager
+
 from datetime import datetime
 
 @login_manager.user_loader
@@ -45,7 +45,7 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(255), index = True)
     body = db.Column(db.String(255), index = True)
-    # timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     comments = db.relationship('Comment', backref = 'post')
     
@@ -67,7 +67,7 @@ class Comment(db.Model):
     
     id = db.Column(db.Integer, primary_key = True)
     comment_post = db.Column(db.String(255), index=True)
-    # time = db.Column(db.DateTime, default=datetime.utcnow)
+    time = db.Column(db.DateTime, default=datetime.utcnow)
     post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
