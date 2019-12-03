@@ -22,6 +22,7 @@ class User(UserMixin,db.Model):
     profile_pic_path = db.Column(db.String())
     posts =  db.relationship('Post', backref = 'user', lazy = "dynamic")
     Comments = db.relationship('Comment', backref = 'user', lazy = "dynamic")
+
     
     @property
     def password(self):
@@ -79,4 +80,11 @@ class Comment(db.Model):
     def get_comments(cls, id):
         comments = Comment.query.filter_by(post_id=id).all()
         return comments
+class Quote:
+    def __init__ (self,id,author,quote,permalink):
+        self.id =id
+        self.author = author 
+        self.quote = quote
+        self.permalink = permalink
+
     

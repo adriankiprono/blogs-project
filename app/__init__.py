@@ -38,11 +38,11 @@ def create_app(config_name):
     db.init_app(app)
     bootstrap.init_app(app)
     login_manager.init_app(app)
-    
+    mail.init_app(app)
     
     #setting config
-    # from .requests import configure_request
-    # configure_request(app)
+    from .requests import configure_request
+    configure_request(app)
     
      # configure UploadSet
     configure_uploads(app,photos)

@@ -5,13 +5,14 @@ from ..models import User,Post,Comment
 from flask_login import login_required,current_user
 from ..import db,photos
 from .forms import BlogForm,CommentsForm,UpdateProfile
+from ..requests import get_random_quote
 
 
 @main.route('/')
 def index():
-    # quote = get_random_quote()
+    quote = get_random_quote()
     
-    return render_template('index.html')
+    return render_template('index.html',quote = quote)
 
 @main.route('/blogs')
 def blogs():
