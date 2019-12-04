@@ -3,22 +3,24 @@
 
 {% block content %}
 
-<div class="container">
-    <div class="row">
-        {% if posts %}
-
-        {{ displayBlog(posts)}}
-
-        {% else %}
-
-        <div class="card" style="width: 100%;">
-            <h4 class="text-center">No posts yet click on add to add.</h4>
+<div class="jumbotron" style="background-color: rgb(178, 216, 231)">
+    <div class="container-fluid">
+        <div class="row" style="font-size: 20px;">
+            {% if posts %}
+    
+            {{ displayBlog(posts)}}
+    
+            {% else %}
+    
+            <div class="card" style="width: 100%;">
+                <h4 class="text-center">No posts yet click on add to add.</h4>
+            </div>
+    
+            {%  endif %}
+    
         </div>
-
-        {%  endif %}
-
+    
     </div>
-
 </div>
 
 {% endblock  %}
